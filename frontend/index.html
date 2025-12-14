@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cricket System Rankings</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER / LOGO BAR -->
+  <header class="header">
+    <div class="logo">
+      🏏 <span>Cricket System Rankings</span>
+    </div>
+    <div class="tagline">
+      Smart • Data-Driven • Real-Time
+    </div>
+  </header>
+
+  <!-- FORMAT TABS -->
+  <nav class="tabs">
+    <button class="tab active" onclick="setFormat('ODI')">ODI</button>
+    <button class="tab" onclick="setFormat('TEST')">TEST</button>
+    <button class="tab" onclick="setFormat('T20')">T20</button>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="container">
+    <div class="table-card">
+      <table class="ranking-table">
+        <thead>
+          <tr>
+            <th>Pos</th>
+            <th>Player</th>
+            <th>Country</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody id="rankingBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
