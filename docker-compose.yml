@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: cricket-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: cricket-backend
+    ports:
+      - "5000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://mongo:27017/cricketDB
+      - JWT_SECRET=my_super_secret_key
+      - CRICKET_API_KEY=your_actual_key
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: cricket-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
